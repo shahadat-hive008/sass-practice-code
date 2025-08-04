@@ -1,4 +1,4 @@
-@use 'variable' as var;
+@use "variable" as var;
 @use "mixin" as mix;
 * {
   margin: 0;
@@ -6,98 +6,93 @@
   box-sizing: border-box;
 }
 body {
-  background-color: var.$main-color;
+  background-color: var(--main-color);
 }
-.hero-section{
-    width: 1024px;
-    min-height: 60vh;
-    margin: 0 auto ;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px ;
-    padding: 10px
-}
-h1{
-    @include mix.font-dec(var.$primary-color, var.$font-stack);
-    margin-bottom: 10px;
-    &:hover{
-        color: var.$hover-color;
-    }
-}
-h2{
-     @include mix.font-dec(var.$primary-color, var.$font-stack);
-    margin-bottom: 10px;
+.hero-section {
+  width: 1024px;
+  min-height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin: 20px;
+    gap: 20px;
+  }
+  @media screen and (max-width: 375px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin: 40px;
+    gap: 20px;
+  }
 }
 
-p{
-    @include mix.font-dec(var.$paragraph-text, var.$font-stack)
+h1 {
+  @include mix.font-dec(var.$primary-color, var.$font-stack);
+  margin-bottom: 10px;
+  &:hover {
+    color: var.$hover-color;
+  }
 }
-.container-img{
-    width: 376px;
-    height: 256px;
-    border-radius: 20px;
-    &:hover{
-        transform: scale(0.8,0.9);
-        transition: 0.7s;
+h2 {
+  @include mix.font-dec(var.$primary-color, var.$font-stack);
+  margin-bottom: 10px;
+}
+
+p {
+  @include mix.font-dec(var.$paragraph-text, var.$font-stack);
+}
+.container-img {
+  width: 376px;
+  height: 256px;
+  border-radius: 20px;
+  &:hover {
+    transform: scale(0.8, 0.9);
+    transition: 0.7s;
+  }
+  @media screen and (max-width: 375px) {
+    .container-img {
+      width: 376px;
     }
+  }
 }
-.showcase-section{
-    width: 1024px;
-    min-height: 60vh ;
-    margin: 0 auto;
-   
-    .section-grid-img{
+.showcase-section {
+  width: 1024px;
+  min-height: 70vh;
+  margin: 0 auto;
+
+  .section-grid-img {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-     margin: 20px 0;
-    .grid-img{
-     width: 376px;
-    height: 256px;
-    border-radius: 20px;
-}
-}
-}
-
-
-@media screen and (max-width: 768px) {
-    .hero-section{
-        flex-direction: column-reverse;
-        justify-content: center;
-        margin: 20px;
-        gap: 20px;
-
+    margin: 20px 0;
+    .grid-img {
+      width: 376px;
+      height: 256px;
+      border-radius: 20px;
     }
-   .showcase-section {
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+    }
+    @media screen and (max-width: 375px) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+      .grid-img {
+        width: 376px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
     margin: 10px 20px;
-    .section-grid-img{
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-        
-    }
-   }
-}
-@media screen and (max-width: 375px) {
-    .hero-section{
-        flex-direction: column-reverse;
-        justify-content: center;
-        margin: 40px;
-        gap: 20px;
-        .container-img{
-            width: 376px;
-        }
-
-    }
-   .showcase-section {
+  }
+  @media screen and (max-width: 375px) {
     margin: 10px 40px;
-    .section-grid-img{
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
-        .grid-img{
-            width: 376px;
-        }
-    }
-   }
+  }
 }
