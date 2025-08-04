@@ -1,0 +1,4 @@
+@mixin font-dec($color, $font-stack) {
+  color: $color;
+  font-family: $font-stack;
+}
