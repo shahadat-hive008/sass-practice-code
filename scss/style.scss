@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: var(--main-color);
+  background-color: var.$main-color;
 }
 .hero-section {
   width: 1024px;
@@ -56,16 +56,13 @@ p {
     transition: 0.7s;
   }
   @media screen and (max-width: 375px) {
-    .container-img {
       width: 376px;
-    }
   }
 }
 .showcase-section {
   width: 1024px;
   min-height: 70vh;
   margin: 0 auto;
-
   .section-grid-img {
     display: grid;
     align-items: center;

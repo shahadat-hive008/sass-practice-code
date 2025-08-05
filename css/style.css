@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: var(--main-color);
+  background-color: #fcf8f8;
 }
 
 .hero-section {
@@ -65,7 +65,7 @@ p {
   transition: 0.7s;
 }
 @media screen and (max-width: 375px) {
-  .container-img .container-img {
+  .container-img {
     width: 376px;
   }
 }
